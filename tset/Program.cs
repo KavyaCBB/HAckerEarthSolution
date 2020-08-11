@@ -7,14 +7,25 @@ namespace tset
 {
     class Program
     {
+        delegate void SomeMethod();
         static void Main(string[] args)
         {
-
-            string input = Console.ReadLine();
-
-            char[] word1 = input.ToCharArray();
-            
            
+
+            
+                List<SomeMethod> delList = new List<SomeMethod>();
+                for (int i = 0; i < 10; i++)
+                {
+                    delList.Add(delegate { Console.WriteLine(i); });
+                }
+
+                foreach (var del in delList)
+                {
+                    del();
+                }
+            
+
+
         }
        
 
